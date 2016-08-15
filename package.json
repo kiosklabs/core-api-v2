@@ -3,12 +3,30 @@
   "version": "1.0.0",
   "description": "Simple REST project with hapijs and mongodb.",
   "main": "server.js",
+  "engines": {
+    "node": "5.9.1",
+    "npm": "3.10.5"
+  },  
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Patrick Meier",
-  "license": "Apache-2.0",
+  "author": "Wely Jesch Sabalilag",
+  "homepage": "https://kiosklabs.github.io",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiosklabs/core-api.git"
+  },
+  "keywords": [
+    "hapi",
+    "nodejs",
+    "kiosk",
+    "labs",
+    "core",
+    "api"
+  ],
+  "license": "MIT",
   "dependencies": {
     "boom": "^3.2.1",
     "hapi": "^13.4.1",

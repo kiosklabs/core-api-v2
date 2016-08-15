@@ -2,7 +2,7 @@
 
 const Hapi = require('hapi');
 const mongojs = require('mongojs');
-const cluster = require('cluster');
+// const cluster = require('cluster');
 // Create a server with a host and port
 const server = new Hapi.Server();
 
