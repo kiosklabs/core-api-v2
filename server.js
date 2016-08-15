@@ -2,15 +2,16 @@
 
 const Hapi = require('hapi');
 const mongojs = require('mongojs');
-
+const cluster = require('cluster');
 // Create a server with a host and port
 const server = new Hapi.Server();
+
 server.connection({
-    port: 3000
+    port: process.env.PORT || 3000
 });
 
 //Connect to db
-server.app.db = mongojs('hapi-rest-mongo', ['books']);
+server.app.db = mongojs(process.env.MONGODB_URI, ['books']);
 
 //Load plugins and start server
 server.register([
