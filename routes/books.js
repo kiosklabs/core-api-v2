@@ -3,24 +3,16 @@
 const Boom = require('boom');
 const uuid = require('node-uuid');
 const Joi = require('joi');
+const Post = require('../models/post');
 
 exports.register = function (server, options, next) {
-
-    const db = server.app.db;
 
     server.route({
         method: 'GET',
         path: '/books',
         handler: function (request, reply) {
-
-            db.books.find((err, docs) => {
-
-                if (err) {
-                    return reply(Boom.wrap(err, 'Internal MongoDB error'));
-                }
-
-                reply(docs);
-            });
+            Post.register();
+            reply().code(200);
 
         }
     });
@@ -30,7 +22,7 @@ exports.register = function (server, options, next) {
         path: '/books/{id}',
         handler: function (request, reply) {
 
-            db.books.findOne({
+            db.collections('books').findOne({
                 _id: request.params.id
             }, (err, doc) => {
 
@@ -58,7 +50,7 @@ exports.register = function (server, options, next) {
             //Create an id
             book._id = uuid.v1();
 
-            db.books.save(book, (err, result) => {
+            db.collections('books').save(book, (err, result) => {
 
                 if (err) {
                     return reply(Boom.wrap(err, 'Internal MongoDB error'));
@@ -83,7 +75,7 @@ exports.register = function (server, options, next) {
         path: '/books/{id}',
         handler: function (request, reply) {
 
-            db.books.update({
+            db.collections('books').update({
                 _id: request.params.id
             }, {
                 $set: request.payload
@@ -116,7 +108,7 @@ exports.register = function (server, options, next) {
         path: '/books/{id}',
         handler: function (request, reply) {
 
-            db.books.remove({
+            db.collections('books').remove({
                 _id: request.params.id
             }, function (err, result) {
 

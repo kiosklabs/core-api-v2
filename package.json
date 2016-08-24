@@ -6,14 +6,13 @@
   "engines": {
     "node": "5.9.1",
     "npm": "3.10.5"
-  },  
-  "private": true,
+  },
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wely Jesch Sabalilag",
   "homepage": "https://kiosklabs.github.io",
-  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/kiosklabs/core-api.git"
@@ -28,10 +27,12 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "boom": "^3.2.1",
     "hapi": "^13.4.1",
     "joi": "^8.4.2",
-    "mongojs": "^2.4.0",
+    "moment": "^2.14.1",
+    "mongoose": "^4.5.9",
     "node-uuid": "^1.4.7"
   }
 }
