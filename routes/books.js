@@ -11,7 +11,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/books',
         handler: function (request, reply) {
-            Post.register();
+            server.app.Post.test();
             reply().code(200);
 
         }
